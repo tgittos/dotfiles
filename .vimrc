@@ -9,6 +9,9 @@ syntax on
 " Turn indenting on for plugins depending on filetype?
 filetype plugin indent on
 
+" Pathogen
+execute pathogen#infect()
+
 " Soft tabs, 2 spaces
 set smartindent
 set expandtab tabstop=2 shiftwidth=2
@@ -16,9 +19,8 @@ set expandtab tabstop=2 shiftwidth=2
 " Line numbering
 set number
 set numberwidth=5
-
-" Highlight current line
-" set cursorline
+set relativenumber
+set number
 
 " Word wrap off
 set wrap!
@@ -26,13 +28,6 @@ set wrap!
 " More informative status line
 set statusline=%F%m%r%h%w\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 set laststatus=2
-
-" Enable indent folding
-set foldenable
-set fdm=indent
-nnoremap <Space> za
-nnoremap <A-Space> zA
-set foldlevelstart=20
 
 " Make tabs easier
 set showtabline=2
@@ -45,9 +40,6 @@ map <C-k> <C-w>k
 map <C-h> <C-w>h
 map <C-l> <C-w>l
 
-" NerdTree
-nmap <Tab> :NERDTreeToggle<CR>
-
 " Some search stuff
 set ignorecase
 set smartcase
@@ -58,10 +50,17 @@ set hlsearch
 set mouse=a
 
 " Font stuff
+"set background=light
 set background=dark
-let g:solarized_termcolors=16
-colo solarized
-set guifont=Inconsolata:h16:cUTF8
+colorscheme solarized
+set guifont=Inconsolata:h16
 
-" Blinking parens
+" Hide MacVims toolbar
+set guioptions-=T
+
+" Blink matching parens
 set sm
+
+" Highlight line/column
+set cursorline
+set cursorcolumn

@@ -1,3 +1,8 @@
+# Import secrets
+if [ -f ~/.secrets ]; then
+  source ~/.secrets
+fi
+
 # Set the environment encoding
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -35,3 +40,6 @@ export PS1="\w \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
 
 # Rails testing stuff
 alias test='ruby -I"./test"'
+
+alias timlog="ag \"\\[TIM DEBUG\\]\""
+alias timscreen="ack --passthru \"\\[TIM DEBUG\\]\""
